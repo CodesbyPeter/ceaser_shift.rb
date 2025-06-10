@@ -1,13 +1,18 @@
+# InvalidCharacterCodeError definition before using it later
 class InvalidCharacterCodeError < StandardError
 end
 
+# creating a function for the ceaser shift
 def caesar_shift(string_shift, no_of_shifts=3)
   shifted_string = ""
+  # Conversion to array substrings i.e "a"
   substrings = string_shift.split(" ")
 
   substrings.each do |substring|
     begin
+      # Conversion of string to interger
       integer_value = Integer(substring)
+      # character conversion
       character = map_integer_to_character(integer_value, no_of_shifts) # Pass shift value
       shifted_string += character
 
@@ -20,6 +25,7 @@ def caesar_shift(string_shift, no_of_shifts=3)
   return shifted_string
 end
 
+# Function to map integer to character
 def map_integer_to_character(integer, shift)
   # Range check
   if integer < 0 || integer > 51
